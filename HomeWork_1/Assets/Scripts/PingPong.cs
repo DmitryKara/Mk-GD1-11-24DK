@@ -1,21 +1,40 @@
+using System.Collections;
 using UnityEngine;
 
 public class PingPong : MonoBehaviour
 {
-    public Vector3 direction = new Vector3(1.0f, 0, 0);
-    public float speed = 1.0f;
+    public Vector3 newPoint;
+    //public Transform object1;
+    public float speed;
+    public Vector3 currentPosition;
 
-    public void Update()
+    public void Start()
     {
-        if (transform.position.x >= 10.0f)
-        {
-            direction = -direction;
-        }
-        else if (transform.position.x <= -10.0f)
-        {
-            direction = -direction;
-        }
+        speed = 0.01f;
+        currentPosition = transform.position;
+        newPoint = new Vector3(Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f), Random.Range(0.0f, 10.0f));
+        StartCoroutine(PlusSpeed());
+    }
 
-        transform.position += direction * speed * Time.deltaTime;
+    IEnumerator PlusSpeed()
+    {
+        while (speed <= 1)
+        {
+            yield return new WaitForSeconds(0.01f);
+            speed += 0.01f;
+            transform.position = Vector3.Lerp(currentPosition, newPoint, speed);
+        }
+        StartCoroutine(MinusSpeed());
+    }
+
+    IEnumerator MinusSpeed()
+    {
+        while (speed >= 0)
+        {
+            yield return new WaitForSeconds(0.01f);
+            speed -= 0.01f;
+            transform.position = Vector3.Lerp(currentPosition, newPoint, speed);
+        }
+        StartCoroutine(PlusSpeed());
     }
 }

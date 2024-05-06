@@ -120,5 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950a1752608b84248be7e1e1bcaa9556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0, z: 0}
+  newPoint: {x: 0, y: 0, z: 0}
+  object1: {fileID: 1224446418006668858}
   speed: 5
