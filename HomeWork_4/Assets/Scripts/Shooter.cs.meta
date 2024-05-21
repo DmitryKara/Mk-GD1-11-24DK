@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2d04bf195524ddc48862d6be01b79964
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bulletPrefab: {fileID: 2257206492188097595, guid: 070a13e1a3f6f3a43b234e2217de5dc3, type: 3}
+  - grenadePrefab: {fileID: 8779071513037942796, guid: 9cad055fcb93f65478e4185d9b77f05f, type: 3}
+  - ballPrefab: {fileID: 3449440537003636066, guid: 3d0d0f91708e2fe4eafc8304f1039ede, type: 3}
+  - spawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
