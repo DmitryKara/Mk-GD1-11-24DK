@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Shooter : Projectils
+public class Shooter : MonoBehaviour
 {
     public GameObject[] projectilePrefabs;
     public Transform spawnPoint;
