@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float sprintSpeed = 5.0f;
     public float animaionBlendSpeed = 0.2f;
     public float jumpSpeed = 7.0f;
+    public int countAttack = 4;
 
     CharacterController controller;
     Camera characterCamera;
@@ -18,6 +20,8 @@ public class PlayerController : MonoBehaviour
     float speedY = 0.0f;
     float gravity = -9.81f;
     bool isJumping = false;
+    bool isDead = false;
+    bool isSpawn = true;
 
     public CharacterController Controller { get { return controller = controller ?? GetComponent<CharacterController>(); } }
 
@@ -32,10 +36,20 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        if (isSpawn)
+        {
+            return;
+        }
+
+        if (isDead)
+        {
+            return;
+        }
+
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
-        if (Input.GetButton("Jump") && !isJumping)
+        if (Input.GetButtonDown("Jump") && !isJumping)
         {
             isJumping = true;
             CharacterAnimator.SetTrigger("Jump");
@@ -85,6 +99,7 @@ public class PlayerController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(0.0f, rotationAngle, 0.0f);
         Controller.transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, rotationSpeed);
 
+        Attack();
         Death();
     }
 
@@ -92,7 +107,23 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            isDead = true;
             CharacterAnimator.SetTrigger("Die");
         }
+    }
+
+    public void Attack()
+    {
+        if (Input.GetMouseButton(0) && !isJumping)
+        {
+            int indexAttack = Random.Range(0, countAttack);           
+            CharacterAnimator.SetInteger("Index", indexAttack);
+            CharacterAnimator.SetTrigger("Attack");
+        }
+    }
+
+    public void spawnAnimationEnd()
+    {
+        isSpawn = false;
     }
 }
