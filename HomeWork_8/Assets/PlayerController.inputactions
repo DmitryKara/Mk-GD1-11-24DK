@@ -1,0 +1,34 @@
+{
+    "name": "PlayerController",
+    "maps": [
+        {
+            "name": "Direction",
+            "id": "da5ea5d9-8e03-461e-8f1f-08e1900bf6b4",
+            "actions": [
+                {
+                    "name": "Change",
+                    "type": "Button",
+                    "id": "8bd9eaa4-3620-44bd-811d-e329a122e25e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "de6f5abc-0622-4f59-9e92-8971e8c66ec8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
