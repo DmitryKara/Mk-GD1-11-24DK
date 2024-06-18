@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FlickeringLight : MonoBehaviour
@@ -13,10 +12,7 @@ public class FlickeringLight : MonoBehaviour
 
     private void Start()
     {
-        if (flickeringLight == null)
-        {
-            flickeringLight = GetComponent<Light>();
-        }
+        flickeringLight = GetComponent<Light>();
 
         StartCoroutine(Flicker());
     }

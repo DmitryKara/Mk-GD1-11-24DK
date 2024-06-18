@@ -12,7 +12,7 @@ public class Character : MonoBehaviour, IControllable
     private Vector3 moveDirection;
     private FootStepAudio footstepAudio;
 
-    private void Awake()
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
         footstepAudio = GetComponent<FootStepAudio>();

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomMusicPlayer : MonoBehaviour
@@ -44,13 +43,13 @@ public class RandomMusicPlayer : MonoBehaviour
         newSource.clip = nextClip;
         newSource.Play();
 
-        float t = 0.0f;
+        float timeCrossfade = 0.0f;
 
-        while (t < crossfadeDuration)
+        while (timeCrossfade < crossfadeDuration)
         {
-            t += Time.deltaTime;
-            activeSource.volume = Mathf.Lerp(1.0f, 0.0f, t / crossfadeDuration);
-            newSource.volume = Mathf.Lerp(0.0f, 1.0f, t / crossfadeDuration);
+            timeCrossfade += Time.deltaTime;
+            activeSource.volume = Mathf.Lerp(1.0f, 0.0f, timeCrossfade / crossfadeDuration);
+            newSource.volume = Mathf.Lerp(0.0f, 1.0f, timeCrossfade / crossfadeDuration);
             yield return null;
         }
 

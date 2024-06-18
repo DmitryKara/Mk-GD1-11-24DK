@@ -13,10 +13,7 @@ public class LampController : MonoBehaviour
 
     private void Start()
     {
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ActivateRandomLamps()
@@ -36,7 +33,6 @@ public class LampController : MonoBehaviour
         {
             lampIndices.Add(i);
         }
-        Shuffle(lampIndices);
 
         for (int i = 0; i < numberOfLampsToActivate; i++)
         {
@@ -58,17 +54,6 @@ public class LampController : MonoBehaviour
         {
             lamp.intensity = Random.Range(0.5f, 2.0f);
             yield return new WaitForSeconds(Random.Range(minFlickerSpeed, maxFlickerSpeed));
-        }
-    }
-
-    private void Shuffle<T>(IList<T> list)
-    {
-        for (int i = 0; i < list.Count; i++)
-        {
-            T temp = list[i];
-            int randomIndex = Random.Range(i, list.Count);
-            list[i] = list[randomIndex];
-            list[randomIndex] = temp;
         }
     }
 }

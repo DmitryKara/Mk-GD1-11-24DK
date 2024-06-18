@@ -7,6 +7,7 @@ public class TriggerTeleport : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         CharacterController characterController = other.GetComponent<CharacterController>();
+
         if (characterController != null)
         {
             characterController.enabled = false;
