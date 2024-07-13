@@ -1,0 +1,34 @@
+{
+    "name": "GameInputController",
+    "maps": [
+        {
+            "name": "SpawnCube",
+            "id": "37419e56-5eec-41bb-957d-5502565a968d",
+            "actions": [
+                {
+                    "name": "Keyboard",
+                    "type": "Button",
+                    "id": "0cf3c40d-d698-48c6-a0bd-aa14687e0062",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e9f79132-ac73-45fb-abb4-e998e740f375",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Keyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
